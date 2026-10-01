@@ -5,7 +5,7 @@
 /**
  * Lab2 - ListReferenceBased
  * Reference-based implementation of the ADT List,
- * extended with displayList().
+ * extended with displayList() and listLongest().
  *
  * @author Vlastimil Finger (B00176858)
  */
@@ -141,6 +141,23 @@ public class ListReferenceBased implements ListInterface
       }
     }
     System.out.println("]");
+  }
+
+  // Returns the longest String in the list (the first one if there is a
+  // tie) or null if the list is empty. Assumes the items are Strings.
+  // Traverses the nodes with curr, without using get() or find().
+  public String listLongest()
+  {
+    String longest = null;
+    for (Node curr = head; curr != null; curr = curr.getNext())
+    {
+      String s = (String) curr.getItem();
+      if (longest == null || s.length() > longest.length())
+      {
+        longest = s;
+      }
+    }
+    return longest;
   }
 
 
