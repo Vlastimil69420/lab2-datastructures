@@ -2,6 +2,13 @@
 // Reference-based implementation of ADT list.
 // ****************************************************
 
+/**
+ * Lab2 - ListReferenceBased
+ * Reference-based implementation of the ADT List,
+ * extended with displayList().
+ *
+ * @author Vlastimil Finger (B00176858)
+ */
 public class ListReferenceBased implements ListInterface
 {
   // reference to linked list of items
@@ -119,6 +126,22 @@ public class ListReferenceBased implements ListInterface
     head = null;
     numItems = 0;
   } // end removeAll
+
+  // Prints the list on one line, e.g. List: [Apple, Banana].
+  // Traverses the nodes with curr, without using get() or find().
+  public void displayList()
+  {
+    System.out.print("List: [");
+    for (Node curr = head; curr != null; curr = curr.getNext())
+    {
+      System.out.print(curr.getItem());
+      if (curr.getNext() != null)
+      {
+        System.out.print(", ");
+      }
+    }
+    System.out.println("]");
+  }
 
 
 } // end ListReferenceBased
